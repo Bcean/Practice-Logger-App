@@ -4,6 +4,8 @@ import "./App.css";
 import { LandingPage } from "./Pages/LandingPage";
 import { SignUp } from "./Pages/SignUp";
 import { Login } from "./Pages/Login";
+import { PrivateRoute } from "./Components/PrivateRoute";
+import { Dashboard } from "./Pages/Dashboard";
 
 function App() {
   return (
@@ -13,6 +15,14 @@ function App() {
           <Route path="/" element={<LandingPage></LandingPage>}></Route>
           <Route path="/Login" element={<Login></Login>}></Route>
           <Route path="/SignUp" element={<SignUp></SignUp>}></Route>
+          <Route
+            path="/Dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          ></Route>
         </Routes>
       </main>
     </>

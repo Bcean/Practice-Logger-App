@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
+import { PrivateRoute } from "../Components/PrivateRoute";
 
+import { useNavigate } from "react-router-dom";
 export const Login = () => {
+  const navigate = useNavigate();
   const [loginData, setloginData] = useState({
     username: "",
     password: "",
@@ -17,6 +20,7 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("sending data to server", loginData);
     try {
       const response = await fetch("http://localhost:8000/api/login/", {
         method: "POST",
@@ -30,6 +34,7 @@ export const Login = () => {
       if (response.ok) {
         localStorage.setItem("token", result.access_token);
         alert("Login successfull");
+        navigate("/Dashboard");
       } else {
         alert(response.status);
       }
