@@ -211,7 +211,7 @@ export const SignUp = () => {
           </p>
         )}
         <h6 className="tex-xl font-light text-violet-700 underline">
-          <Link to="/Login">Already have an account? Create one here</Link>
+          <Link to="/Login">Already have an account? Login here</Link>
         </h6>
       </div>
     </div>
