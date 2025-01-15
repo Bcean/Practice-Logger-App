@@ -6,6 +6,9 @@ import { SignUp } from "./Pages/SignUp";
 import { Login } from "./Pages/Login";
 import { PrivateRoute } from "./Components/PrivateRoute";
 import { Dashboard } from "./Pages/Dashboard";
+import { PracticeLog } from "./Pages/PracticeLog";
+import { Stats } from "./Pages/Stats";
+import { Settings } from "./Pages/Settings";
 
 function App() {
   return (
@@ -19,7 +22,33 @@ function App() {
             path="/Dashboard"
             element={
               <PrivateRoute>
+                {" "}
+                {/* Route can only be accessed by Proper Login */}
                 <Dashboard />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/PracticeLog"
+            element={
+              <PrivateRoute>
+                <PracticeLog />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/Stats"
+            element={
+              <PrivateRoute>
+                <Stats />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
+            path="/Settings"
+            element={
+              <PrivateRoute>
+                <Settings />
               </PrivateRoute>
             }
           ></Route>

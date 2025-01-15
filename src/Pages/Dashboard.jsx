@@ -2,6 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { NavBar } from "../Components/NavBar";
+import { UserDashStats } from "../Components/UserDashStats";
+import { AiInsight } from "../Components/AiInsight";
+import { YearOverviewDash } from "../Components/YearOverviewDash";
+import { StartPractice } from "../Components/StartPractice";
 export const Dashboard = () => {
   const [displayUsername, setdisplayUsername] = useState("");
   useEffect(() => {
@@ -30,19 +34,24 @@ export const Dashboard = () => {
     <>
       <main className="w-full h-full flex justify-center">
         <NavBar></NavBar>
-        <main className="w-[90%] h-full bg-black text-white flex flex-col border border-blue-600">
-          <h1 className="h-[10%] border border-green-600">
-            Welcome {displayUsername}
-          </h1>
+        <main className="w-[90%] h-full bg-black text-white flex flex-col p-[2%]">
+          <h1 className="h-[10%] ">Welcome {displayUsername}</h1>
           <div className="h-[90%] w-full flex p-[2%] justify-between items-center">
             <div
               id="leftDisplay"
-              className="w-[47.5%] h-full border border-red-800"
-            ></div>
+              className="w-[47.5%] h-full flex flex-col items-center gap-4 justify-center"
+            >
+              <UserDashStats></UserDashStats>
+              <AiInsight></AiInsight>
+              <YearOverviewDash></YearOverviewDash>
+            </div>
             <div
               id="rightDisplay"
-              className="w-[47.5%] h-full border border-red-800"
-            ></div>
+              className="w-[47.5%] p-[2%] h-full  flex flex-col items-center justify-center gap-4"
+            >
+              <h1>Start Practice Session</h1>
+              <StartPractice></StartPractice>
+            </div>
           </div>
         </main>
       </main>
